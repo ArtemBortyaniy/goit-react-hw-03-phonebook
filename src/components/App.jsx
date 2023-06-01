@@ -17,11 +17,9 @@ class App extends Component {
     const data = localStorage.getItem(App.CONTACTS_STORAGE);
     let parsetData = JSON.parse(data);
 
-    if (parsetData === null) {
-      parsetData = [];
+    if (parsetData) {
+      this.setState({ contacts: parsetData });
     }
-
-    this.setState({ contacts: parsetData });
   }
 
   componentDidUpdate(prevProps, prevState) {
